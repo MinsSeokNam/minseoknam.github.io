@@ -7,28 +7,32 @@
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Helvetica Neue', sans-serif;
       background-color: #f4f4f4;
       color: #333;
-      position: relative;
     }
 
+    .main-section {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 40px 20px;
+      flex-wrap: wrap;
+    }
+
+    /* Device Focus */
     .sidebar {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       gap: 20px;
-      justify-content: center;
-      margin-top: 40px;
     }
 
     .focus-label {
-      width: 100%;
-      text-align: center;
       font-size: 1.5em;
       font-weight: bold;
       color: #111;
-      margin-bottom: 10px;
+      text-align: center;
       border-bottom: 2px solid #444;
       padding-bottom: 5px;
     }
@@ -52,6 +56,55 @@
       font-weight: bold;
     }
 
+    /* News Cards */
+    .news-area {
+      width: 320px;
+    }
+
+    .news-title {
+      font-size: 1.3em;
+      font-weight: bold;
+      border-bottom: 2px solid #444;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+
+    .news-card {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      box-shadow: 2px 2px 12px rgba(0,0,0,0.05);
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .news-thumb {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .news-content {
+      padding: 12px;
+    }
+
+    .news-content h4 {
+      font-size: 1em;
+      margin: 0 0 6px;
+    }
+
+    .news-content h4 a {
+      text-decoration: none;
+      color: #0066cc;
+    }
+
+    .news-content p {
+      font-size: 0.85em;
+      color: #555;
+      margin: 0;
+    }
+
+    /* Profile Info */
     .container {
       max-width: 720px;
       margin: 0 auto;
@@ -101,42 +154,55 @@
     }
 
     @media screen and (max-width: 768px) {
-      .sidebar {
+      .main-section {
         flex-direction: column;
         align-items: center;
+      }
+      .news-area {
+        width: 90%;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Device Focus 영역 -->
-  <div class="sidebar">
-    <div class="focus-label">🔬 My Focused Devices</div>
 
-    <div class="field-box">
-      <img src="반도체 사진.jpg" alt="반도체 회로" class="field-img" />
-      <div class="field-caption">Logic Device</div>
+  <!-- Device & News Section -->
+  <div class="main-section">
+    <!-- Device Images -->
+    <div class="sidebar">
+      <div class="focus-label">🔬 My Focused Devices</div>
+
+      <div class="field-box">
+        <img src="반도체 사진.jpg" alt="Logic Device" class="field-img" />
+        <div class="field-caption">Logic Device</div>
+      </div>
+
+      <div class="field-box">
+        <img src="전력반도체.jpg" alt="Power Device" class="field-img" />
+        <div class="field-caption">Power Device</div>
+      </div>
+
+      <div class="field-box">
+        <img src="MICRON.png" alt="Memory Device" class="field-img" />
+        <div class="field-caption">Memory Device</div>
+      </div>
     </div>
 
-    <div class="field-box">
-      <img src="전력반도체.jpg" alt="전력반도체 시뮬레이션" class="field-img" />
-      <div class="field-caption">Power Device</div>
-    </div>
-
-    <div class="field-box">
-      <img src="MICRON.png" alt="Memory Device" class="field-img" />
-      <div class="field-caption">Memory Device</div>
+    <!-- Real-Time News Cards -->
+    <div class="news-area">
+      <div class="news-title">📰 실시간 반도체 뉴스</div>
+      <div id="news-container"></div>
     </div>
   </div>
 
-  <!-- 중앙 프로필 및 소개 -->
+  <!-- Profile Info -->
   <div class="container">
     <img src="profile.jpg" alt="MinSeok Nam" class="profile-img" />
     <h1>MinSeok Nam</h1>
     <h2>"풍파는 언제나 전진하는 자의 벗이다"</h2>
 
     <div class="bio">
-      안녕하세요, 반도체 공정과 소자에 매료되어 끊임없이 배우고 있는 전자공학도입니다. <br><br>
+      안녕하세요, 반도체 공정과 소자에 매료되어 끊임없이 배우고 있는 전자공학도 남민석입니다. <br><br>
       전력 소자, 메모리 소자, 집적회로 공정 등 다양한 반도체 분야에 관심이 있으며, 학부 시절부터 소자의 특성 해석과 공정 시뮬레이션에 깊이 몰두해왔습니다. <br><br>
       실험 실습과 인턴십 경험을 통해 현장 중심의 문제 해결 능력을 길러왔고, 새로운 기술과 아이디어를 배움으로써 더 나은 내일을 설계하고자 합니다.
     </div>
@@ -150,5 +216,44 @@
       &copy; 2025 MinSeok Nam. All rights reserved.
     </footer>
   </div>
+
+  <!-- JS: 자동 뉴스 렌더링 -->
+  <script>
+    const newsData = [
+      {
+        title: "South Korea unveils $23 billion support package for chips",
+        link: "https://www.reuters.com/technology/south-korea-unveils-23-billion-support-package-chips-amid-us-tariff-uncertainty-2025-04-14/",
+        image: "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/YJZZFRFW75PB7LJ74MDGUCRXYE.jpg",
+        summary: "한국 정부, 미중 갈등 속 반도체 산업 경쟁력 확보 위해 33조 원 투입 발표"
+      },
+      {
+        title: "TSMC accelerates US fab build",
+        link: "https://www.tomshardware.com/news/live/chip-news",
+        image: "https://cdn.mos.cms.futurecdn.net/8cF5ufnD8NPvKnbrCxCywF-1200-80.jpg",
+        summary: "TSMC, 미국 애리조나 파운드리 공장 조기 가동 및 2nm 공정 실험 착수"
+      },
+      {
+        title: "President Lee promotes AI-chip superfund",
+        link: "https://www.trendforce.com/news/2025/06/04/news-south-koreas-new-president-lee-jae-myung-promotes-ai-chip-drive-but-industry-doubts-remain/",
+        image: "https://www.trendforce.com/upload/images/news/Lee_chip_policy.jpg",
+        summary: "이재명 대통령, AI-반도체 슈퍼펀드 조성 발표… 업계는 실효성 의문"
+      }
+    ];
+
+    const container = document.getElementById('news-container');
+
+    newsData.forEach(news => {
+      const card = document.createElement('div');
+      card.className = 'news-card';
+      card.innerHTML = `
+        <img src="${news.image}" alt="뉴스 썸네일" class="news-thumb" />
+        <div class="news-content">
+          <h4><a href="${news.link}" target="_blank">${news.title}</a></h4>
+          <p>${news.summary}</p>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  </script>
 </body>
 </html>
