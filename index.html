@@ -11,11 +11,20 @@
       font-family: 'Helvetica Neue', sans-serif;
       background-color: #f4f4f4;
       color: #333;
+      position: relative;
+    }
+    .focus-label {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #222;
     }
     .container {
       max-width: 720px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 60px 20px 40px;
       text-align: center;
     }
     .profile-img {
@@ -48,12 +57,6 @@
       color: #0066cc;
       font-weight: bold;
     }
-    .section-title {
-      font-size: 1.4em;
-      margin-top: 40px;
-      margin-bottom: 15px;
-      font-weight: bold;
-    }
     .field-img {
       width: 100%;
       max-width: 320px;
@@ -69,6 +72,7 @@
   </style>
 </head>
 <body>
+  <div class="focus-label">📷 Focus</div>
   <div class="container">
     <img src="profile.jpg" alt="MinSeok Nam" class="profile-img" />
     <h1>MinSeok Nam</h1>
@@ -80,7 +84,6 @@
       실험 실습과 인턴십 경험을 통해 현장 중심의 문제 해결 능력을 길러왔고, 새로운 기술과 아이디어를 배움으로써 더 나은 내일을 설계하고자 합니다.
     </div>
 
-    <div class="section-title">📷 내가 집중하고 있는 분야</div>
     <img src="반도체 사진.jpg" alt="반도체 회로" class="field-img" />
     <img src="전력반도체.jpg" alt="전력반도체 시뮬레이션" class="field-img" />
 
