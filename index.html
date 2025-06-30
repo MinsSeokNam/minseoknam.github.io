@@ -15,26 +15,32 @@
     }
 
     .sidebar {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      width: 200px;
-      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 40px;
     }
 
     .focus-label {
-      font-size: 1.2em;
+      width: 100%;
+      text-align: center;
+      font-size: 1.5em;
       font-weight: bold;
-      color: #222;
-      margin-bottom: 15px;
+      color: #111;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #444;
+      padding-bottom: 5px;
     }
 
     .field-box {
-      margin-bottom: 15px;
+      width: 180px;
+      text-align: center;
     }
 
     .field-img {
       width: 100%;
+      height: auto;
       border-radius: 10px;
       border: 2px solid #aaa;
     }
@@ -96,17 +102,16 @@
 
     @media screen and (max-width: 768px) {
       .sidebar {
-        position: static;
-        margin-bottom: 30px;
-        width: auto;
+        flex-direction: column;
+        align-items: center;
       }
     }
   </style>
 </head>
 <body>
-  <!-- 왼쪽 상단 Focus + 이미지 박스 -->
+  <!-- Device Focus 영역 -->
   <div class="sidebar">
-    <div class="focus-label">📷 Focus</div>
+    <div class="focus-label">🔬 My Focused Devices</div>
 
     <div class="field-box">
       <img src="반도체 사진.jpg" alt="반도체 회로" class="field-img" />
@@ -116,6 +121,11 @@
     <div class="field-box">
       <img src="전력반도체.jpg" alt="전력반도체 시뮬레이션" class="field-img" />
       <div class="field-caption">Power Device</div>
+    </div>
+
+    <div class="field-box">
+      <img src="MICRON.png" alt="Micron HBM Memory Device" class="field-img" />
+      <div class="field-caption">Memory Device</div>
     </div>
   </div>
 
