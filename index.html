@@ -13,20 +13,36 @@
       color: #333;
       position: relative;
     }
-    .focus-label {
+
+    .sidebar {
       position: absolute;
       top: 20px;
       left: 20px;
+      width: 200px;
+      text-align: center;
+    }
+
+    .focus-label {
       font-size: 1.2em;
       font-weight: bold;
       color: #222;
+      margin-bottom: 15px;
     }
+
+    .field-img {
+      width: 100%;
+      border-radius: 10px;
+      border: 2px solid #aaa;
+      margin-bottom: 10px;
+    }
+
     .container {
       max-width: 720px;
       margin: 0 auto;
       padding: 60px 20px 40px;
       text-align: center;
     }
+
     .profile-img {
       width: 200px;
       height: 200px;
@@ -34,22 +50,26 @@
       border-radius: 50%;
       border: 4px solid #333;
     }
+
     h1 {
       font-size: 2.5em;
       margin: 20px 0 10px;
     }
+
     h2 {
       font-size: 1.2em;
       font-weight: normal;
       color: #555;
       margin-bottom: 30px;
     }
+
     .bio {
       font-size: 1em;
       line-height: 1.6;
       margin-bottom: 30px;
       color: #444;
     }
+
     .contact a {
       display: inline-block;
       margin: 0 10px;
@@ -57,35 +77,39 @@
       color: #0066cc;
       font-weight: bold;
     }
-    .field-img {
-      width: 100%;
-      max-width: 320px;
-      margin: 10px;
-      border-radius: 10px;
-      border: 2px solid #aaa;
-    }
+
     footer {
       margin-top: 50px;
       color: #888;
       font-size: 0.9em;
     }
+
+    @media screen and (max-width: 768px) {
+      .sidebar {
+        position: static;
+        margin-bottom: 30px;
+        width: auto;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="focus-label">📷 Focus</div>
+  <div class="sidebar">
+    <div class="focus-label">📷 Focus</div>
+    <img src="반도체 사진.jpg" alt="반도체 회로" class="field-img" />
+    <img src="전력반도체.jpg" alt="전력반도체 시뮬레이션" class="field-img" />
+  </div>
+
   <div class="container">
     <img src="profile.jpg" alt="MinSeok Nam" class="profile-img" />
     <h1>MinSeok Nam</h1>
     <h2>"풍파는 언제나 전진하는 자의 벗이다"</h2>
 
     <div class="bio">
-      안녕하세요, 반도체 공정과 소자에 매료되어 끊임없이 배우고 있는 전자공학도입니다. <br><br>
-      전력 소자, 메모리 소자, 집적회로 공정 등 다양한 반도체 분야에 관심이 있으며, 학부 과정동안 소자의 특성 해석과 공정 시뮬레이션에 깊이 몰두해왔습니다. <br><br>
+      안녕하세요, 반도체 공정과 소자에 매료되어 끊임없이 배우고 있는 전자공학도 남민석입니다. <br><br>
+      전력 소자, 메모리 소자, 집적회로 공정 등 다양한 반도체 분야에 관심이 있으며, 학부 시절부터 소자의 특성 해석과 공정 시뮬레이션에 깊이 몰두해왔습니다. <br><br>
       실험 실습과 인턴십 경험을 통해 현장 중심의 문제 해결 능력을 길러왔고, 새로운 기술과 아이디어를 배움으로써 더 나은 내일을 설계하고자 합니다.
     </div>
-
-    <img src="반도체 사진.jpg" alt="반도체 회로" class="field-img" />
-    <img src="전력반도체.jpg" alt="전력반도체 시뮬레이션" class="field-img" />
 
     <div class="contact">
       <a href="mailto:alstjr4539@naver.com">📧 Email</a>
