@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MinSeok Nam</title>
   <style>
-    /* box-sizing 전역 적용으로 패딩/보더 포함 너비 계산 */
     *,
     *::before,
     *::after {
@@ -17,8 +16,6 @@
       font-family: 'Helvetica Neue', sans-serif;
       background: linear-gradient(to right, #f5f9ff, #eef3fb);
       color: #333;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
     .layout-wrapper {
@@ -26,10 +23,9 @@
       justify-content: center;
       align-items: flex-start;
       gap: 40px;
-      padding: 60px 0; /* 좌우 패딩 0으로 수정 */
-      flex-wrap: nowrap;  /* 줄바꿈 금지 */
-      overflow-x: auto;   /* 가로 스크롤 허용 */
-      max-width: 1200px;
+      padding: 60px 0;
+      flex-wrap: nowrap;
+      overflow-x: auto;
       margin: 0 auto;
     }
 
@@ -38,7 +34,7 @@
       border-radius: 12px;
       padding: 24px 20px 30px 20px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      flex: 0 0 240px;  /* 고정 너비 */
+      flex: 0 0 240px;
       display: flex;
       flex-direction: column;
       gap: 30px;
@@ -53,7 +49,7 @@
       max-width: 480px;
       flex-shrink: 0;
       flex-grow: 0;
-      width: 480px; /* 고정 크기 */
+      width: 480px;
       text-align: center;
       background: #fff;
       border-radius: 12px;
@@ -68,7 +64,6 @@
       padding-bottom: 8px;
       text-align: center;
       color: #0055aa;
-      user-select: none;
     }
 
     .field-box {
@@ -95,7 +90,6 @@
       color: #444;
       font-weight: 600;
       margin-top: 8px;
-      user-select: none;
     }
 
     .project-box {
@@ -111,7 +105,6 @@
 
     .project-box ul li {
       margin-bottom: 8px;
-      user-select: text;
     }
 
     .profile-img {
@@ -123,21 +116,18 @@
       box-shadow: 0 4px 12px rgba(0,85,170,0.4);
       margin: 0 auto;
       display: block;
-      user-select: none;
     }
 
     h1 {
       font-size: 2.6em;
       margin: 15px 0 6px 0;
       color: #003d7a;
-      user-select: text;
     }
 
     h2 {
       font-size: 1.3em;
       color: #0073e6;
       font-style: italic;
-      user-select: text;
       margin-bottom: 28px;
     }
 
@@ -146,7 +136,6 @@
       margin: 0 0 30px 0;
       color: #444;
       line-height: 1.6;
-      user-select: text;
       white-space: pre-line;
     }
 
@@ -160,7 +149,6 @@
       font-weight: 700;
       text-decoration: none;
       transition: color 0.25s ease;
-      user-select: text;
     }
 
     .contact a:hover {
@@ -172,7 +160,6 @@
       margin-top: 40px;
       font-size: 0.85em;
       color: #888;
-      user-select: none;
     }
 
     .news-card {
@@ -193,7 +180,6 @@
       width: 100%;
       height: 160px;
       object-fit: cover;
-      user-select: none;
       border-bottom: 1px solid #ccc;
     }
 
@@ -204,7 +190,6 @@
     .news-content h4 {
       font-size: 1.05em;
       margin: 0 0 8px 0;
-      user-select: text;
     }
 
     .news-content h4 a {
@@ -222,7 +207,6 @@
       font-size: 0.9em;
       color: #555;
       margin: 0;
-      user-select: text;
     }
 
     @media screen and (max-width: 1000px) {
@@ -230,7 +214,7 @@
         flex-direction: column;
         align-items: center;
         padding: 40px 15px;
-        overflow-x: visible; /* 모바일에선 가로스크롤 해제 */
+        overflow-x: visible;
       }
 
       .column, .profile-center {
@@ -248,28 +232,22 @@
 </head>
 <body>
   <div class="layout-wrapper">
-    
-    <!-- Focus Device 섹션 -->
     <div class="column" aria-label="Field of interest">
       <div class="focus-label">🔬 Field of interest</div>
-
       <div class="field-box">
         <img src="반도체 사진.jpg" alt="Logic Device" class="field-img" />
         <div class="field-caption">Logic Device</div>
       </div>
-
       <div class="field-box">
         <img src="전력반도체.jpg" alt="Power Device" class="field-img" />
         <div class="field-caption">Power Device</div>
       </div>
-
       <div class="field-box">
         <img src="MICRON.png" alt="Memory Device" class="field-img" />
         <div class="field-caption">Memory Device</div>
       </div>
     </div>
 
-    <!-- 프로젝트 섹션 -->
     <div class="column" aria-label="Research Projects">
       <div class="project-box">
         <h3>📁 Research Projects</h3>
@@ -282,7 +260,6 @@
       </div>
     </div>
 
-    <!-- 프로필 섹션 -->
     <section class="profile-center" aria-label="Profile Section">
       <img src="profile.jpg" alt="MinSeok Nam 프로필 사진" class="profile-img" />
       <h1>MinSeok Nam</h1>
@@ -292,25 +269,19 @@
         전력 소자, 메모리 소자, 집적회로 공정 등 다양한 반도체 분야에 관심이 있으며, 학부 과정동안 소자의 특성 분석과 공정 시뮬레이션에 몰두해왔습니다.<br><br>
         실험 실습과 인턴십 경험을 통해 기른 현장 중심의 문제 해결 능력과 전공 지식을 이용하여 더 나은 내일을 설계하고자 합니다.
       </div>
-
       <div class="contact">
-        <a href="mailto:alstjr4539@naver.com" aria-label="이메일 보내기">📧 Email</a>
-        <a href="https://nminsux.tistory.com" target="_blank" rel="noopener" aria-label="블로그 방문">📖 Blog</a>
+        <a href="mailto:alstjr4539@naver.com">📧 Email</a>
+        <a href="https://nminsux.tistory.com" target="_blank" rel="noopener">📖 Blog</a>
       </div>
-
-      <footer>
-        &copy; 2025 MinSeok Nam. All rights reserved.
-      </footer>
+      <footer>&copy; 2025 MinSeok Nam. All rights reserved.</footer>
     </section>
 
-    <!-- 뉴스 섹션 -->
     <div class="column" aria-label="Real-time Semiconductor News">
       <div class="news-title">📰 Real-time Semiconductor News</div>
       <div id="news-container" role="list"></div>
     </div>
   </div>
 
-  <!-- 뉴스 자동 생성 JS -->
   <script>
     const newsData = [
       {
@@ -334,7 +305,6 @@
     ];
 
     const container = document.getElementById("news-container");
-
     newsData.forEach(news => {
       const card = document.createElement("div");
       card.className = "news-card";
