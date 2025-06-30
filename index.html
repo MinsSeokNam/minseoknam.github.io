@@ -21,15 +21,20 @@
       flex-wrap: wrap;
     }
 
-    .sidebar-left {
+    .column {
+      width: 220px;
       display: flex;
       flex-direction: column;
       gap: 30px;
-      width: 220px;
     }
 
-    .focus-label {
-      font-size: 1.5em;
+    .profile-center {
+      max-width: 480px;
+      text-align: center;
+    }
+
+    .focus-label, .news-title, .project-box h3 {
+      font-size: 1.3em;
       font-weight: bold;
       border-bottom: 2px solid #444;
       padding-bottom: 6px;
@@ -61,19 +66,6 @@
       font-size: 0.9em;
       color: #444;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
-
-    .project-box h3 {
-      margin-top: 0;
-      font-size: 1em;
-      font-weight: bold;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 5px;
-    }
-
-    .profile-center {
-      max-width: 500px;
-      text-align: center;
     }
 
     .profile-img {
@@ -113,18 +105,6 @@
       color: #888;
     }
 
-    .sidebar-right {
-      width: 300px;
-    }
-
-    .news-title {
-      font-size: 1.3em;
-      font-weight: bold;
-      border-bottom: 2px solid #444;
-      padding-bottom: 6px;
-      margin-bottom: 12px;
-    }
-
     .news-card {
       background: #fff;
       border: 1px solid #ccc;
@@ -160,14 +140,13 @@
       margin: 0;
     }
 
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 1000px) {
       .layout-wrapper {
         flex-direction: column;
         align-items: center;
       }
 
-      .sidebar-left,
-      .sidebar-right {
+      .column, .profile-center {
         width: 100%;
         text-align: center;
       }
@@ -176,9 +155,10 @@
 </head>
 <body>
   <div class="layout-wrapper">
-    <!-- 왼쪽 Device 섹션 -->
-    <div class="sidebar-left">
-      <div class="focus-label">🔬 Focus</div>
+    
+    <!-- Focus Device 섹션 -->
+    <div class="column">
+      <div class="focus-label">🔬 My Focused Devices</div>
 
       <div class="field-box">
         <img src="반도체 사진.jpg" alt="Logic Device" class="field-img" />
@@ -194,23 +174,26 @@
         <img src="MICRON.png" alt="Memory Device" class="field-img" />
         <div class="field-caption">Memory Device</div>
       </div>
+    </div>
 
+    <!-- 프로젝트 섹션 -->
+    <div class="column">
       <div class="project-box">
-        <h3>📁 Research </h3>
+        <h3>📁 Research Projects</h3>
         <ul>
-          <li> 4H - SiC Vertical FinFET Design </li>
-          <li> InP/InAlAS Hemt Design </li>
-          <li> Proposal of Rooftile Nanosheet FET based on MBCFET</li>
-          <li> Development of a big data-based fall detection system</li>
+          <li>4H-SiC Vertical FinFET Design</li>
+          <li>InP/InAlAs HEMT Process & RF</li>
+          <li>MBCFET 기반 Rooftile 구조 제안</li>
+          <li>Big Data 기반 낙상 감지 시스템 개발</li>
         </ul>
       </div>
     </div>
 
-    <!-- 가운데 프로필 섹션 -->
+    <!-- 프로필 섹션 -->
     <div class="profile-center">
       <img src="profile.jpg" alt="MinSeok Nam" class="profile-img" />
       <h1>MinSeok Nam</h1>
-      <h2>"풍파는 언제나 전진하는 자의 벗이다"</h2>
+      <h2>\"풍파는 언제나 전진하는 자의 벗이다\"</h2>
       <div class="bio">
         안녕하세요, 반도체 공정과 소자에 매료되어 끊임없이 배우고 있는 전자공학도 남민석입니다. <br><br>
         전력 소자, 메모리 소자, 집적회로 공정 등 다양한 반도체 분야에 관심이 있으며, 학부 시절부터 소자의 특성 해석과 공정 시뮬레이션에 깊이 몰두해왔습니다. <br><br>
@@ -227,14 +210,14 @@
       </footer>
     </div>
 
-    <!-- 오른쪽 뉴스 섹션 -->
-    <div class="sidebar-right">
-      <div class="news-title">📰 Real-time semiconductor news</div>
+    <!-- 뉴스 섹션 -->
+    <div class="column">
+      <div class="news-title">📰 Real-time Semiconductor News</div>
       <div id="news-container"></div>
     </div>
   </div>
 
-  <!-- 뉴스 JS -->
+  <!-- 뉴스 자동 생성 JS -->
   <script>
     const newsData = [
       {
