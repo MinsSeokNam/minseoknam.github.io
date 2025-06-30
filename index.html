@@ -29,11 +29,21 @@
       margin-bottom: 15px;
     }
 
+    .field-box {
+      margin-bottom: 15px;
+    }
+
     .field-img {
       width: 100%;
       border-radius: 10px;
       border: 2px solid #aaa;
-      margin-bottom: 10px;
+    }
+
+    .field-caption {
+      font-size: 0.95em;
+      margin-top: 5px;
+      color: #555;
+      font-weight: bold;
     }
 
     .container {
@@ -94,12 +104,22 @@
   </style>
 </head>
 <body>
+  <!-- 왼쪽 상단 Focus + 이미지 박스 -->
   <div class="sidebar">
     <div class="focus-label">📷 Focus</div>
-    <img src="반도체 사진.jpg" alt="Logic" class="field-img" />
-    <img src="전력반도체.jpg" alt="Power Device" class="field-img" />
+
+    <div class="field-box">
+      <img src="반도체 사진.jpg" alt="반도체 회로" class="field-img" />
+      <div class="field-caption">Logic Device</div>
+    </div>
+
+    <div class="field-box">
+      <img src="전력반도체.jpg" alt="전력반도체 시뮬레이션" class="field-img" />
+      <div class="field-caption">Power Device</div>
+    </div>
   </div>
 
+  <!-- 중앙 프로필 및 소개 -->
   <div class="container">
     <img src="profile.jpg" alt="MinSeok Nam" class="profile-img" />
     <h1>MinSeok Nam</h1>
