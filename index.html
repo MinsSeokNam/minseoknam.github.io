@@ -24,8 +24,8 @@
     .sidebar-left {
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      width: 200px;
+      gap: 30px;
+      width: 220px;
     }
 
     .focus-label {
@@ -51,6 +51,24 @@
       color: #555;
       font-weight: bold;
       margin-top: 4px;
+    }
+
+    .project-box {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 0.9em;
+      color: #444;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .project-box h3 {
+      margin-top: 0;
+      font-size: 1em;
+      font-weight: bold;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
     }
 
     .profile-center {
@@ -160,7 +178,7 @@
   <div class="layout-wrapper">
     <!-- 왼쪽 Device 섹션 -->
     <div class="sidebar-left">
-      <div class="focus-label">🔬 My Focused Devices</div>
+      <div class="focus-label">🔬 Focuse</div>
 
       <div class="field-box">
         <img src="반도체 사진.jpg" alt="Logic Device" class="field-img" />
@@ -176,6 +194,16 @@
         <img src="MICRON.png" alt="Memory Device" class="field-img" />
         <div class="field-caption">Memory Device</div>
       </div>
+
+      <div class="project-box">
+        <h3>📁 Research </h3>
+        <ul>
+          <li> 4H - SiC Vertical FinFET Design </li>
+          <li> InP/InAlAS Hemt Design </li>
+          <li> Proposal of Rooftile Nanosheet FET based on MBCFET</li>
+          <li> Development of a big data-based fall detection system</li>
+        </ul>
+      </div>
     </div>
 
     <!-- 가운데 프로필 섹션 -->
@@ -184,8 +212,8 @@
       <h1>MinSeok Nam</h1>
       <h2>"풍파는 언제나 전진하는 자의 벗이다"</h2>
       <div class="bio">
-        안녕하세요, 반도체 공정과 소자에 매료되어 끊임없이 배우고 있는 전자공학도입니다. <br><br>
-        전력 소자, 메모리 소자, 집적회로 공정 등 다양한 반도체 분야에 관심이 있으며, 학부 시절부터 소자의 특성 해석과 공정 시뮬레이션에 몰두해왔습니다. <br><br>
+        안녕하세요, 반도체 공정과 소자에 매료되어 끊임없이 배우고 있는 전자공학도 남민석입니다. <br><br>
+        전력 소자, 메모리 소자, 집적회로 공정 등 다양한 반도체 분야에 관심이 있으며, 학부 시절부터 소자의 특성 해석과 공정 시뮬레이션에 깊이 몰두해왔습니다. <br><br>
         실험 실습과 인턴십 경험을 통해 현장 중심의 문제 해결 능력을 길러왔고, 새로운 기술과 아이디어를 배움으로써 더 나은 내일을 설계하고자 합니다.
       </div>
 
@@ -201,7 +229,7 @@
 
     <!-- 오른쪽 뉴스 섹션 -->
     <div class="sidebar-right">
-      <div class="news-title">📰 실시간 반도체 뉴스</div>
+      <div class="news-title">📰 Real-time semiconductor news</div>
       <div id="news-container"></div>
     </div>
   </div>
