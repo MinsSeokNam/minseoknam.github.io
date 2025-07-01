@@ -11,111 +11,46 @@
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
+      height: 100%; /* 전체 페이지 높이를 100%로 설정 */
       margin: 0;
       font-family: 'Helvetica Neue', sans-serif;
       background: linear-gradient(to right, #f5f9ff, #eef3fb);
       color: #333;
+      overflow-x: hidden; /* 수평 스크롤 방지 */
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      overflow-y: auto; /* 세로 스크롤 허용 */
     }
 
     .layout-wrapper {
+      width: 90%; /* 화면 너비의 90%로 설정 */
+      max-width: 1200px; /* 최대 너비는 1200px로 제한 */
       display: flex;
       justify-content: center;
       align-items: flex-start;
       gap: 40px;
       padding: 60px 0;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      margin: 0 auto;
+      flex-wrap: wrap; /* 화면 크기에 맞게 컨텐츠가 자동으로 정렬 */
+      overflow-x: hidden; /* 수평 스크롤 방지 */
     }
 
-    .column {
-      background: #fff;
-      border-radius: 12px;
-      padding: 24px 20px 30px 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      flex: 0 0 240px;
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-      transition: box-shadow 0.3s ease;
-    }
-
-    .column:hover {
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    .column, .profile-center {
+      flex: 1;
+      max-width: 450px; /* 각 요소의 최대 크기 설정 */
+      min-width: 300px; /* 최소 크기 설정 */
     }
 
     .profile-center {
-      max-width: 480px;
-      flex-shrink: 0;
-      flex-grow: 0;
-      width: 480px;
       text-align: center;
+      padding: 40px 30px 50px 30px;
       background: #fff;
       border-radius: 12px;
-      padding: 40px 30px 50px 30px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-
-    .focus-label, .news-title, .project-box h3 {
-      font-size: 1.3em;
-      font-weight: bold;
-      border-bottom: 3px solid #0055aa;
-      padding-bottom: 8px;
-      text-align: center;
-      color: #0055aa;
-    }
-
-    .field-box {
-      text-align: center;
-    }
-
-    .field-img {
-      width: 100%;
-      border-radius: 12px;
-      border: 2px solid #bbb;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-
-    .field-img:hover {
-      transform: scale(1.05);
-      border-color: #0055aa;
-      box-shadow: 0 6px 14px rgba(0,85,170,0.25);
-    }
-
-    .field-caption {
-      font-size: 1em;
-      color: #444;
-      font-weight: 600;
-      margin-top: 8px;
-    }
-
-    .project-box {
-      font-size: 0.95em;
-      color: #444;
-      line-height: 1.5;
-    }
-
-    .project-box ul {
-      padding-left: 18px;
-      margin-top: 12px;
-    }
-
-    .project-box ul li {
-      margin-bottom: 8px;
-    }
-
-    .profile-img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 5px solid #0055aa;
-      box-shadow: 0 4px 12px rgba(0,85,170,0.4);
-      margin: 0 auto;
-      display: block;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 
     h1 {
@@ -162,6 +97,7 @@
       color: #888;
     }
 
+    /* 뉴스 카드 스타일 */
     .news-card {
       background: #fff;
       border: 1px solid #ddd;
@@ -209,12 +145,12 @@
       margin: 0;
     }
 
+    /* 반응형 디자인 */
     @media screen and (max-width: 1000px) {
       .layout-wrapper {
         flex-direction: column;
         align-items: center;
         padding: 40px 15px;
-        overflow-x: visible;
       }
 
       .column, .profile-center {
@@ -230,6 +166,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="layout-wrapper">
     <div class="column" aria-label="Field of interest">
