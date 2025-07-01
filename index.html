@@ -283,48 +283,104 @@
       <footer>&copy; 2025 MinSeok Nam. All rights reserved.</footer>
     </section>
 
-    <div class="column" aria-label="Real-time Semiconductor News">
-      <div class="news-title">📰 Real-time Semiconductor News</div>
-      <div id="news-container" role="list"></div>
-    </div>
-  </div>
+<div class="news-title">📰 Real-time Semiconductor News</div>
+<div id="news-container" role="list"></div>
 
-  <script>
-    const newsData = [
-      {
-        title: "South Korea unveils $23 billion chip fund",
-        link: "https://www.reuters.com/technology/south-korea-unveils-23-billion-support-package-chips-amid-us-tariff-uncertainty-2025-04-14/",
-        image: "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/YJZZFRFW75PB7LJ74MDGUCRXYE.jpg",
-        summary: "한국 정부, 반도체 경쟁력 확보 위해 33조 원 지원 계획 발표"
-      },
-      {
-        title: "TSMC accelerates US fab construction",
-        link: "https://www.tomshardware.com/news/live/chip-news",
-        image: "https://cdn.mos.cms.futurecdn.net/8cF5ufnD8NPvKnbrCxCywF-1200-80.jpg",
-        summary: "TSMC, 미국 파운드리 양산 앞당겨… Apple 칩 수요 대응"
-      },
-      {
-        title: "President Lee announces AI chip initiative",
-        link: "https://www.trendforce.com/news/2025/06/04/news-south-koreas-new-president-lee-jae-myung-promotes-ai-chip-drive-but-industry-doubts-remain/",
-        image: "https://www.trendforce.com/upload/images/news/Lee_chip_policy.jpg",
-        summary: "이재명 대통령, AI-반도체 슈퍼펀드 조성 발표… 업계는 실효성 의문"
-      }
-    ];
+<style>
+  .news-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
 
-    const container = document.getElementById("news-container");
-    newsData.forEach(news => {
-      const card = document.createElement("div");
-      card.className = "news-card";
-      card.setAttribute('role', 'listitem');
-      card.innerHTML = `
-        <img src="${news.image}" alt="뉴스 썸네일" class="news-thumb" />
-        <div class="news-content">
-          <h4><a href="${news.link}" target="_blank" rel="noopener">${news.title}</a></h4>
-          <p>${news.summary}</p>
-        </div>
-      `;
-      container.appendChild(card);
-    });
-  </script>
+  .news-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px);
+  }
+
+  .news-thumb {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .news-content {
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .news-content h4 {
+    font-size: 1.05em;
+    margin: 0;
+    font-weight: 700;
+    color: #003d7a;
+  }
+
+  .news-content h4 a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.25s ease;
+  }
+
+  .news-content h4 a:hover {
+    color: #0055aa;
+    text-decoration: underline;
+  }
+
+  .news-content p {
+    font-size: 0.9em;
+    color: #555;
+    margin: 0;
+    line-height: 1.4;
+  }
+</style>
+
+<script>
+  const newsData = [
+    {
+      title: "South Korea unveils $23 billion chip fund",
+      link: "https://www.reuters.com/technology/south-korea-unveils-23-billion-support-package-chips-amid-us-tariff-uncertainty-2025-04-14/",
+      image: "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/YJZZFRFW75PB7LJ74MDGUCRXYE.jpg",
+      summary: "한국 정부, 반도체 경쟁력 확보 위해 33조 원 지원 계획 발표"
+    },
+    {
+      title: "TSMC accelerates US fab construction",
+      link: "https://www.tomshardware.com/news/live/chip-news",
+      image: "https://cdn.mos.cms.futurecdn.net/8cF5ufnD8NPvKnbrCxCywF-1200-80.jpg",
+      summary: "TSMC, 미국 파운드리 양산 앞당겨… Apple 칩 수요 대응"
+    },
+    {
+      title: "President Lee announces AI chip initiative",
+      link: "https://www.trendforce.com/news/2025/06/04/news-south-koreas-new-president-lee-jae-myung-promotes-ai-chip-drive-but-industry-doubts-remain/",
+      image: "https://www.trendforce.com/upload/images/news/Lee_chip_policy.jpg",
+      summary: "이재명 대통령, AI-반도체 슈퍼펀드 조성 발표… 업계는 실효성 의문"
+    }
+  ];
+
+  const container = document.getElementById("news-container");
+  newsData.forEach(news => {
+    const card = document.createElement("div");
+    card.className = "news-card";
+    card.setAttribute('role', 'listitem');
+    card.innerHTML = `
+      <img src="${news.image}" alt="뉴스 이미지" class="news-thumb" />
+      <div class="news-content">
+        <h4><a href="${news.link}" target="_blank" rel="noopener">${news.title}</a></h4>
+        <p>${news.summary}</p>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+</script>
+
 </body>
 </html>
