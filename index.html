@@ -292,50 +292,50 @@
   </div>
 
   <!-- JS for News -->
-  <script>
-    let newsIndex = 0;
-    const newsData = [
-      {
-        title: "한국, 23조 원 규모 반도체 지원책 발표",
-        link: "https://www.reuters.com/technology/south-korea-unveils-23-billion-support-package-chips-amid-us-tariff-uncertainty-2025-04-14/",
-        image: "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/YJZZFRFW75PB7LJ74MDGUCRXYE.jpg",
-        summary: "한국 정부가 반도체 경쟁력 강화를 위해 23조 원 규모의 지원 패키지를 발표"
-      },
-      {
-        title: "TSMC, 미국 파운드리 공장 가동 확대",
-        link: "https://www.tomshardware.com/news/live/chip-news",
-        image: "https://cdn.mos.cms.futurecdn.net/8cF5ufnD8NPvKnbrCxCywF-1200-80.jpg",
-        summary: "TSMC가 미국 내 파운드리 공장 양산을 앞당기며, Apple의 칩 수요에 대응할 계획"
-      }
-    ];
+ <script>
+  let newsIndex = 0;
+  const newsData = [
+    {
+      title: "삼성전자, 차세대 반도체 기술 개발 착수",
+      link: "https://www.chosun.com/economy/industry-company/2025/06/15/2KZK2S2F5ZGGJOLSM2YI5R2BBY/",
+      image: "https://image.chosun.com/sitedata/image/2025/06/15/2025061500874.jpg",
+      summary: "삼성전자가 차세대 반도체 기술을 개발하기 위한 새로운 연구개발 프로젝트를 발표"
+    },
+    {
+      title: "LG전자, 반도체 부문 성장 전망 밝다",
+      link: "https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=105&oid=023&aid=0003725781",
+      image: "https://imgnews.pstatic.net/image/023/2025/06/15/2025061500477.jpg",
+      summary: "LG전자가 반도체 부문에서 급성장하고 있으며, 이를 기반으로 향후 5년간 대규모 투자를 예고"
+    }
+  ];
 
-    function loadNews() {
-      const container = document.getElementById("news-container");
-      for (let i = newsIndex; i < newsIndex + 2 && i < newsData.length; i++) {
-        const news = newsData[i];
-        const card = document.createElement("div");
-        card.className = "news-card";
-        card.setAttribute('role', 'listitem');
-        card.innerHTML = `
-          <img src="${news.image}" alt="뉴스 이미지" class="news-thumb" />
-          <div class="news-content">
-            <h4><a href="${news.link}" target="_blank" rel="noopener">${news.title}</a></h4>
-            <p>${news.summary}</p>
-          </div>
-        `;
-        container.appendChild(card);
-      }
-
-      newsIndex += 2;
-      if (newsIndex >= newsData.length) {
-        document.getElementById("load-more").disabled = true;
-        document.getElementById("load-more").innerText = "더 이상 뉴스가 없습니다.";
-      }
+  function loadNews() {
+    const container = document.getElementById("news-container");
+    for (let i = newsIndex; i < newsIndex + 2 && i < newsData.length; i++) {
+      const news = newsData[i];
+      const card = document.createElement("div");
+      card.className = "news-card";
+      card.setAttribute('role', 'listitem');
+      card.innerHTML = `
+        <img src="${news.image}" alt="뉴스 이미지" class="news-thumb" />
+        <div class="news-content">
+          <h4><a href="${news.link}" target="_blank" rel="noopener">${news.title}</a></h4>
+          <p>${news.summary}</p>
+        </div>
+      `;
+      container.appendChild(card);
     }
 
-    loadNews();
+    newsIndex += 2;
+    if (newsIndex >= newsData.length) {
+      document.getElementById("load-more").disabled = true;
+      document.getElementById("load-more").innerText = "더 이상 뉴스가 없습니다.";
+    }
+  }
 
-    document.getElementById("load-more").addEventListener("click", loadNews);
-  </script>
+  loadNews();
+
+  document.getElementById("load-more").addEventListener("click", loadNews);
+</script>
 </body>
 </html>
