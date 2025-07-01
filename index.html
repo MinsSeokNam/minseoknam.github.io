@@ -31,8 +31,8 @@
       width: 90%;
       max-width: 1200px;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-wrap: wrap; /* 내용이 넘치지 않게 자동으로 정렬되게 함 */
+      justify-content: flex-start;
       align-items: flex-start;
       gap: 40px;
       padding: 60px 0;
@@ -46,7 +46,7 @@
       display: flex;
       flex-direction: column;
       gap: 30px;
-      flex: 0 1 240px;
+      flex: 1 1 240px;
     }
 
     .profile-center {
