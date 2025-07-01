@@ -287,40 +287,55 @@
     <div class="column" aria-label="Real-time News">
       <div class="news-title">📰 Real-time Semiconductor News</div>
       <div id="news-container"></div>
+      <button id="load-more" style="margin: 20px auto; display: block; padding: 10px 20px; background-color: #0055aa; color: white; border: none; border-radius: 5px; cursor: pointer;">더 보기</button>
     </div>
   </div>
 
   <!-- JS for News -->
   <script>
+    let newsIndex = 0;
     const newsData = [
       {
-        title: "South Korea unveils $23 billion chip fund",
+        title: "한국, 23조 원 규모 반도체 지원책 발표",
         link: "https://www.reuters.com/technology/south-korea-unveils-23-billion-support-package-chips-amid-us-tariff-uncertainty-2025-04-14/",
         image: "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/YJZZFRFW75PB7LJ74MDGUCRXYE.jpg",
-        summary: "한국 정부, 반도체 경쟁력 확보 위해 33조 원 지원 계획 발표"
+        summary: "한국 정부가 반도체 경쟁력 강화를 위해 23조 원 규모의 지원 패키지를 발표"
       },
       {
-        title: "TSMC accelerates US fab construction",
+        title: "TSMC, 미국 파운드리 공장 가동 확대",
         link: "https://www.tomshardware.com/news/live/chip-news",
         image: "https://cdn.mos.cms.futurecdn.net/8cF5ufnD8NPvKnbrCxCywF-1200-80.jpg",
-        summary: "TSMC, 미국 파운드리 양산 앞당겨… Apple 칩 수요 대응"
+        summary: "TSMC가 미국 내 파운드리 공장 양산을 앞당기며, Apple의 칩 수요에 대응할 계획"
       }
     ];
 
-    const container = document.getElementById("news-container");
-    newsData.forEach(news => {
-      const card = document.createElement("div");
-      card.className = "news-card";
-      card.setAttribute('role', 'listitem');
-      card.innerHTML = `
-        <img src="${news.image}" alt="뉴스 이미지" class="news-thumb" />
-        <div class="news-content">
-          <h4><a href="${news.link}" target="_blank" rel="noopener">${news.title}</a></h4>
-          <p>${news.summary}</p>
-        </div>
-      `;
-      container.appendChild(card);
-    });
+    function loadNews() {
+      const container = document.getElementById("news-container");
+      for (let i = newsIndex; i < newsIndex + 2 && i < newsData.length; i++) {
+        const news = newsData[i];
+        const card = document.createElement("div");
+        card.className = "news-card";
+        card.setAttribute('role', 'listitem');
+        card.innerHTML = `
+          <img src="${news.image}" alt="뉴스 이미지" class="news-thumb" />
+          <div class="news-content">
+            <h4><a href="${news.link}" target="_blank" rel="noopener">${news.title}</a></h4>
+            <p>${news.summary}</p>
+          </div>
+        `;
+        container.appendChild(card);
+      }
+
+      newsIndex += 2;
+      if (newsIndex >= newsData.length) {
+        document.getElementById("load-more").disabled = true;
+        document.getElementById("load-more").innerText = "더 이상 뉴스가 없습니다.";
+      }
+    }
+
+    loadNews();
+
+    document.getElementById("load-more").addEventListener("click", loadNews);
   </script>
 </body>
 </html>
