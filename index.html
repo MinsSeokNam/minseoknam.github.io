@@ -11,6 +11,63 @@
       box-sizing: border-box;
     }
 
+    html, body {
+      height: 100%; /* 전체 페이지 높이를 100%로 설정 */
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: linear-gradient(to right, #f5f9ff, #eef3fb);
+      color: #333;
+      overflow-x: hidden; /* 수평 스크롤 방지 */
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      overflow-y: auto; /* 세로 스크롤 허용 */
+      min-height: 100vh; /* 화면을 꽉 채우도록 설정 */
+    }
+
+    .layout-wrapper {
+      width: 90%; /* 화면 너비의 90%로 설정 */
+      max-width: 1200px; /* 최대 너비는 1200px로 제한 */
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 60px 0;
+      flex-wrap: wrap; /* 화면 크기에 맞게 컨텐츠가 자동으로 정렬 */
+      overflow-x: hidden; /* 수평 스크롤 방지 */
+    }
+
+    .column {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px 20px 30px 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      flex: 0 0 240px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .column:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .profile-center {
+      max-width: 480px;
+      flex-shrink: 0;
+      flex-grow: 0;
+      width: 480px;
+      text-align: center;
+      background: #fff;
+      border-radius: 12px;
+      padding: 40px 30px 50px 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
     body {
       margin: 0;
       font-family: 'Helvetica Neue', sans-serif;
